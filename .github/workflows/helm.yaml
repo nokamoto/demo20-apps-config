@@ -16,7 +16,7 @@ jobs:
     - name: Make
       run: make
   merge:
-    name: merge
+    name: Merge
     runs-on: ubuntu-latest
     needs: build
     # if: github.event_name == 'push'
@@ -26,6 +26,8 @@ jobs:
     - run: |
         git config --local user.email "nokamoto.engr@gmail.com"
         git config --local user.name "nokamoto"
-        git branch development
         git remote add development https://${{ secrets.GH_PAT }}@github.com/nokamoto/demo20-apps-config.git
+        git fetch development
+        git checkout development
+        git merge master
         git push development development
