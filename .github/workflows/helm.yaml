@@ -19,7 +19,7 @@ jobs:
     name: Merge
     runs-on: ubuntu-latest
     needs: build
-    # if: github.event_name == 'push'
+    if: github.event_name == 'push'
     steps:
     - name: Check out code into the Helm directory
       uses: actions/checkout@v2
