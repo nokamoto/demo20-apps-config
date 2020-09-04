@@ -8,16 +8,32 @@ compute:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute
   tag: cef5a078da73a9a34a34207b23fae5f553be448f
 
+computeautomatedtest:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-compute-automated-test
+  tag: cef5a078da73a9a34a34207b23fae5f553be448f
+
 iam:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam
+  tag: cef5a078da73a9a34a34207b23fae5f553be448f
+
+iamautomatedtest:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-iam-automated-test
   tag: cef5a078da73a9a34a34207b23fae5f553be448f
 
 rdb:
   image: ghcr.io/nokamoto/demo20-apps/demo20-rdb
   tag: cef5a078da73a9a34a34207b23fae5f553be448f
 
+rdbautomatedtest:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-rdb-automated-test
+  tag: cef5a078da73a9a34a34207b23fae5f553be448f
+
 resourcemanager:
   image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager
+  tag: cef5a078da73a9a34a34207b23fae5f553be448f
+
+resourcemanagerautomatedtest:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager-automated-test
   tag: cef5a078da73a9a34a34207b23fae5f553be448f
 
 mysql:
