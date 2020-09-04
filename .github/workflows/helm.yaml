@@ -24,10 +24,12 @@ jobs:
     - name: Check out code into the Helm directory
       uses: actions/checkout@v2
     - run: |
+        cd /tmp
         git config --local user.email "nokamoto.engr@gmail.com"
         git config --local user.name "nokamoto"
-        git remote add development https://${{ secrets.GH_PAT }}@github.com/nokamoto/demo20-apps-config.git
-        git fetch development
+        git clone https://${{ secrets.GH_PAT }}@github.com/nokamoto/demo20-apps-config.git
+        cd demo20-apps-config
+        git fetch
         git checkout development
-        git merge origin/master
-        git push development development
+        git merge $GITHUB_SHA
+        git push origin development
