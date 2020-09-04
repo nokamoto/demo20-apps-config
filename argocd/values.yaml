@@ -1,0 +1,9 @@
+argo-cd:
+  installCRDs: false
+  configs:
+    secret:
+      argocdServerAdminPassword: $2a$08$NM2xkykTdni0SHlvwQLi1euxapRPNL61u/MsUUEauLMieKQxkUvAS # admin
+      argocdServerAdminPasswordMtime: "2020-09-04T00:00:00Z"
+  server:
+    extraArgs:
+    - --insecure
