@@ -1,3 +1,5 @@
+namespace: local
+
 authorizer:
   image: ghcr.io/nokamoto/demo20-apps/demo20-authorizer
   tag: cef5a078da73a9a34a34207b23fae5f553be448f
