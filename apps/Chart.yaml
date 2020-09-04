@@ -1,0 +1,9 @@
+apiVersion: v2
+name: apps
+description: A Helm chart for demo applications
+type: application
+version: 0.1.0
+dependencies:
+- name: mysql
+  version: 1.6.7
+  repository: https://kubernetes-charts.storage.googleapis.com/

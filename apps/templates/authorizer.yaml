@@ -1,0 +1,69 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: authorizer
+  name: authorizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authorizer
+  template:
+    metadata:
+      labels:
+        app: authorizer
+    spec:
+      containers:
+      - image: "{{ .Values.authorizer.image }}:{{ .Values.authorizer.tag }}"
+        name: authorizer
+        env:
+        - name: LOGGER_DEBUG
+          value: "1"
+        - name: GRPC_SERVER_PORT
+          value: "9000"
+        - name: IAM_GRPC_ADDRESS
+          value: "iam:9000"
+        - name: CONFIG_PATH
+          value: /etc/authorizer/cloudapis.json
+        readinessProbe:
+          tcpSocket:
+            port: 9000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 9000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        volumeMounts:
+        - mountPath: /etc/authorizer
+          name: authorizer-conf
+      volumes:
+      - name: authorizer-conf
+        configMap:
+          name: authorizer-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: authorizer
+  name: authorizer
+spec:
+  ports:
+  - name: http2
+    port: 9000
+    protocol: TCP
+  selector:
+    app: authorizer
+  type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: authorizer-conf
+data:
+  cloudapis.json: |-
+{{ .Files.Get "cloudapis.json" | indent 4 }}
