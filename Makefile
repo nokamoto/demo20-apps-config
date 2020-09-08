@@ -9,8 +9,8 @@ local:
 cd:
 	# https://github.com/argoproj/argo-cd/issues/3280
 	# helm dep build argocd
-	kubectl apply -f secret.yaml
 	helm install cd argocd --wait
+	kubectl apply -f secret.yaml
 	helm install app-of-apps app-of-apps
 	until kubectl port-forward svc/cd-argocd-server 8080:80; do sleep 1; done
 	
