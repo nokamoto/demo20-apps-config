@@ -10,7 +10,7 @@ spec:
   template:
     spec:
       containers:
-      - image: busybox
+      - image: alpine
         name: gitops
         command:
         - echo revision={{ .Values.revision }}
