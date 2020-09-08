@@ -20,7 +20,7 @@ spec:
         - name: GIT_SHA
           value: {{ .Values.revision }}
         - name: DRY_RUN
-          value: 1
+          value: "1"
         - name: GH_PAT
           valueFrom:
             secretKeyRef:
