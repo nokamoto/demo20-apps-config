@@ -1,0 +1,28 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gitops
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  template:
+    spec:
+      containers:
+      - image: ghcr.io/nokamoto/demo20-gitops-plugin:97d0d3f8e154e01a2eaca69bc0a81f3798223b62
+        name: gitops
+        command:
+        - {{.Values.gitops }}
+        env:
+        - name: GIT_BRANCH
+          value: production
+        - name: GIT_SHA
+          value: {{ .Values.revision }}
+        - name: GH_PAT
+          valueFrom:
+            secretKeyRef:
+              name: ghpat
+              key: ghpat
+      restartPolicy: Never
+  backoffLimit: 3
