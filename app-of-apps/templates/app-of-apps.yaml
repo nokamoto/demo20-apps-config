@@ -25,3 +25,30 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: production
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: apps
+    repoURL: https://github.com/nokamoto/demo20-apps-config
+    targetRevision: production
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-production.yaml
+      parameters:
+      - name: revision
+        value: $ARGOCD_APP_REVISION 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
