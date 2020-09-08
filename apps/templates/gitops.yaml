@@ -10,9 +10,8 @@ spec:
   template:
     spec:
       containers:
-      - image: alpine
+      - image: busybox
         name: gitops
-        command:
-        - echo revision={{ .Values.revision }}
+        command: echo revision={{ .Values.revision }}
       restartPolicy: Never
   backoffLimit: 3
