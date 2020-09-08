@@ -1,44 +1,19 @@
-namespace: local
-
 authorizer:
   image: ghcr.io/nokamoto/demo20-apps/demo20-authorizer
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
 compute:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
 computeautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute-automated-test
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
 iam:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
 iamautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam-automated-test
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
-rdb:
-  image: ghcr.io/nokamoto/demo20-apps/demo20-rdb
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
-rdbautomatedtest:
-  image: ghcr.io/nokamoto/demo20-apps/demo20-rdb-automated-test
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
-resourcemanager:
-  image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
-resourcemanagerautomatedtest:
-  image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager-automated-test
-  tag: cef5a078da73a9a34a34207b23fae5f553be448f
-
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
 mysql:
-  mysqlUser: test
-  mysqlPassword: test
   initializationFiles:
     init.sql: |-
       CREATE DATABASE cloud;
@@ -118,5 +93,16 @@ mysql:
       ) VALUES
           ('/', 'root'),
           ('todo', 'todo display name');
-  
-
+  mysqlPassword: test
+  mysqlUser: test
+namespace: local
+rdb:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-rdb
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
+rdbautomatedtest: 691b2340eec367d02790b6e76c6be7145680b547
+resourcemanager:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
+resourcemanagerautomatedtest:
+  image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager-automated-test
+  tag: 691b2340eec367d02790b6e76c6be7145680b547
