@@ -10,10 +10,18 @@ spec:
   template:
     spec:
       containers:
-      - image: busybox
+      - image: ghcr.io/nokamoto/demo20-gitops-plugin:97d0d3f8e154e01a2eaca69bc0a81f3798223b62
         name: gitops
         command:
-        - echo
-        - revision={{ .Values.revision }}
+        - ./plugin.sh
+        env:
+        - name: GIT_BRANCH
+          value: production
+        - name: GIT_SHA
+          value: {{ .Values.revision }}
+        - name: DRY_RUN
+          value: 1
+        - name: GH_PAT
+          value: {{ .Values.ghpat | b64enc }}
       restartPolicy: Never
   backoffLimit: 3

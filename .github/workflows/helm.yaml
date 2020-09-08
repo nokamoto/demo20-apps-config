@@ -21,15 +21,9 @@ jobs:
     needs: build
     if: github.event_name == 'push'
     steps:
-    - name: Check out code into the Helm directory
-      uses: actions/checkout@v2
     - run: |
-        cd /tmp
-        git clone https://${{ secrets.GH_PAT }}@github.com/nokamoto/demo20-apps-config.git
-        cd demo20-apps-config
-        git config --local user.email "nokamoto.engr@gmail.com"
-        git config --local user.name "nokamoto"
-        git fetch
-        git checkout development
-        git merge $GITHUB_SHA
-        git push origin development
+        docker run \
+          -e GIT_BRANCH=development\
+          -e GIT_SHA=$GITHUB_SHA\
+          -e GH_PAT=${{ secrets.GH_PAT }}\
+          ghcr.io/nokamoto/demo20-gitops-plugin:97d0d3f8e154e01a2eaca69bc0a81f3798223b62

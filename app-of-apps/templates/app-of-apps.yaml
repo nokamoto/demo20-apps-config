@@ -18,6 +18,7 @@ spec:
       valueFiles:
         - values.yaml
         - values-development.yaml
+        - values-insecure.yaml # gh pat required
       parameters:
       - name: revision
         value: $ARGOCD_APP_REVISION 
