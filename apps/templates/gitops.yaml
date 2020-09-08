@@ -13,7 +13,7 @@ spec:
       - image: ghcr.io/nokamoto/demo20-gitops-plugin:97d0d3f8e154e01a2eaca69bc0a81f3798223b62
         name: gitops
         command:
-        - ./plugin.sh
+        - {{.Values.gitops }}
         env:
         - name: GIT_BRANCH
           value: production

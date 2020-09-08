@@ -1,1 +1,2 @@
 namespace: development
+gitops: ./plugin.sh

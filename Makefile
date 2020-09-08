@@ -16,6 +16,6 @@ cd:
 	
 delete:
 	helm uninstall local || echo
-	helm uninstall cd || echo
 	helm uninstall app-of-apps || echo
+	helm uninstall cd || echo
 	kubectl delete -f secret.yaml
