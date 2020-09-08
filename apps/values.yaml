@@ -1,18 +1,18 @@
 authorizer:
   image: ghcr.io/nokamoto/demo20-apps/demo20-authorizer
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 compute:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 computeautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute-automated-test
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 iam:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 iamautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam-automated-test
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 mysql:
   initializationFiles:
     init.sql: |-
@@ -98,13 +98,13 @@ mysql:
 namespace: local
 rdb:
   image: ghcr.io/nokamoto/demo20-apps/demo20-rdb
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 rdbautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-rdb-automated-test
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 resourcemanager:
   image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 resourcemanagerautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager-automated-test
-  tag: 691b2340eec367d02790b6e76c6be7145680b547
+  tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
