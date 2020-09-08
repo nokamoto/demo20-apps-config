@@ -22,6 +22,9 @@ spec:
         - name: DRY_RUN
           value: 1
         - name: GH_PAT
-          value: {{ .Values.ghpat | b64enc }}
+          valueFrom:
+            secretKeyRef:
+              name: ghpat
+              key: ghpat
       restartPolicy: Never
   backoffLimit: 3
