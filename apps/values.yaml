@@ -100,7 +100,7 @@ rdb:
   image: ghcr.io/nokamoto/demo20-apps/demo20-rdb
   tag: 691b2340eec367d02790b6e76c6be7145680b547
 rdbautomatedtest:
-  image: image: ghcr.io/nokamoto/demo20-apps/demo20-rdb-automated-test
+  image: ghcr.io/nokamoto/demo20-apps/demo20-rdb-automated-test
   tag: 691b2340eec367d02790b6e76c6be7145680b547
 resourcemanager:
   image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager
