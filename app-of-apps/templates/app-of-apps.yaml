@@ -18,6 +18,9 @@ spec:
       valueFiles:
         - values.yaml
         - values-development.yaml
+      parameters:
+      - name: revision
+        value: $ARGOCD_APP_REVISION 
   syncPolicy:
     automated:
       prune: true
