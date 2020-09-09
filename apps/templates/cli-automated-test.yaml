@@ -1,0 +1,52 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cloud-automated-test
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  template:
+    spec:
+      initContainers:
+      - image: busybox:1.32
+        name: wait-for-compute
+        command:
+        - sh
+        - -c
+        - timeout 60 sh -c 'until nc -z $0 $1; do sleep 1; done' compute 9000
+      - image: busybox:1.32
+        name: wait-for-iam
+        command:
+        - sh
+        - -c
+        - timeout 60 sh -c 'until nc -z $0 $1; do sleep 1; done' iam 9000
+      - image: busybox:1.32
+        name: wait-for-rdb
+        command:
+        - sh
+        - -c
+        - timeout 60 sh -c 'until nc -z $0 $1; do sleep 1; done' rdb 9000
+      - image: busybox:1.32
+        name: wait-for-resourcemanager
+        command:
+        - sh
+        - -c
+        - timeout 60 sh -c 'until nc -z $0 $1; do sleep 1; done' resourcemanager 9000
+      containers:
+      - image: "{{ .Values.cliautomatedtest.image }}:{{ .Values.cliautomatedtest.tag }}"
+        name: cloud-automated-test
+        env:
+        - name: LOGGER_DEBUG
+          value: "1"
+        - name: COMPUTE_GRPC_ADDRESS
+          value: "compute:9000"
+        - name: IAM_GRPC_ADDRESS
+          value: "iam:9000"
+        - name: RDB_GRPC_ADDRESS
+          value: "rdb:9000"
+        - name: RESOURCEMANAGER_GRPC_ADDRESS
+          value: "resourcemanager:9000"
+      restartPolicy: Never
+  backoffLimit: 3
