@@ -13,6 +13,9 @@ iam:
 iamautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam-automated-test
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
+cliautomatedtest:
+  image: ghcr.io/nokamoto/demo20-cli/cli-automated-test
+  tag: v0.0.1
 mysql:
   initializationFiles:
     init.sql: |-
