@@ -9,6 +9,7 @@ $ helm install local apps
 ## Argo CD
 pre-requisite: Secret
 ```yaml
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -17,6 +18,15 @@ metadata:
 type: Opaque
 data:
   ghpat: ... # nokamoto pat
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ghpat
+  namespace: production
+type: Opaque
+data:
+  ghpat: ""
 ```
 
 ```bash
