@@ -1,21 +1,22 @@
 authorizer:
   image: ghcr.io/nokamoto/demo20-apps/demo20-authorizer
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
+cliautomatedtest:
+  image: ghcr.io/nokamoto/demo20-cli/cli-automated-test
+  tag: v0.0.2
 compute:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 computeautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-compute-automated-test
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
+gitops: echo
 iam:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
 iamautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-iam-automated-test
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
-cliautomatedtest:
-  image: ghcr.io/nokamoto/demo20-cli/cli-automated-test
-  tag: v0.0.1
 mysql:
   initializationFiles:
     init.sql: |-
@@ -111,4 +112,3 @@ resourcemanager:
 resourcemanagerautomatedtest:
   image: ghcr.io/nokamoto/demo20-apps/demo20-resourcemanager-automated-test
   tag: 4a7f41d0fee0c98d116a74a3bc73aa12935ceea5
-gitops: "echo"
